@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Contractor Inc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07101c; --card: #0f1e33; --card2: #162030;
+    --border: #1e3050; --primary: #3ec4a8; --yellow: #edb84a;
+    --text: #e8f0f8; --text2: #8aaccb; --text3: #4a6888; --red: #d95f3b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--text); font-family: 'DM Sans', -apple-system, sans-serif; min-height: 100vh; }
+  body { padding: 0 20px 60px; }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  .header { text-align: center; padding: 52px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  .app-name { font-family: 'Exo 2','Arial Black',sans-serif; font-size: clamp(24px,6vw,38px); font-weight: 900; letter-spacing: 3px; background: linear-gradient(135deg,#edb84a,#3ec4a8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 6px; }
+  .subtitle { font-size: 13px; color: var(--text3); letter-spacing: 3px; text-transform: uppercase; }
+
+  .section-title { font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .section { margin-bottom: 36px; }
+
+  .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+  .faq-q { padding: 16px 18px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; font-weight: 600; color: var(--text); user-select: none; }
+  .faq-q:hover { background: var(--card2); }
+  .faq-chev { color: var(--text3); font-size: 18px; transition: transform 0.2s; flex-shrink: 0; }
+  .faq-a { display: none; padding: 0 18px 16px; font-size: 13px; color: var(--text2); line-height: 1.8; border-top: 1px solid var(--border); padding-top: 14px; }
+  .faq-a code { background: var(--card2); padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+
+  .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; text-align: center; }
+  .contact-card p { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 16px; }
+  .contact-email { display: inline-block; background: rgba(62,196,168,0.1); border: 1px solid rgba(62,196,168,0.35); color: var(--primary); padding: 10px 24px; border-radius: 24px; font-size: 14px; font-weight: 600; text-decoration: none; }
+  .contact-email:hover { background: rgba(62,196,168,0.18); }
+
+  .tip-box { background: rgba(237,184,74,0.06); border: 1px solid rgba(237,184,74,0.25); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--text2); line-height: 1.7; margin-top: 10px; }
+
+  footer { text-align: center; padding: 40px 0 20px; border-top: 1px solid var(--border); margin-top: 40px; font-size: 12px; color: var(--text3); line-height: 2; }
+  footer a { color: var(--primary); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div style="font-size:48px;margin-bottom:14px">🏗️</div>
+    <div class="app-name">CONTRACTOR INC</div>
+    <div class="subtitle">Support Center</div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <div class="section-title">Frequently Asked Questions</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How do I save my game? <span class="faq-chev">›</span></div>
+      <div class="faq-a">Your game auto-saves every time you advance a week and whenever you leave the app. You can also manually save at any time by going to <strong>Settings → Save Game</strong>. Up to 5 separate save slots are available.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">I lost my save / my save is gone. What happened? <span class="faq-chev">›</span></div>
+      <div class="faq-a">Save data is stored in your device's local storage. It can be lost if you: clear your browser/app cache, uninstall and reinstall the app, or reset your device without a backup. We recommend using <strong>Settings → Save Slots</strong> to keep multiple saves as a backup. Unfortunately, if local storage is cleared, the data cannot be recovered.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">What is the AI feature and do I need it? <span class="faq-chev">›</span></div>
+      <div class="faq-a">The AI feature generates unique client quotes, site notes, and competitor intel for each job RFP. It's completely optional — the game is fully playable without it. To enable it, you need your own Anthropic API key (from console.anthropic.com). Your key is stored only on your device and costs are billed directly by Anthropic — typically a few cents per game session.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How do I get an Anthropic API key? <span class="faq-chev">›</span></div>
+      <div class="faq-a">Go to <strong>console.anthropic.com</strong>, create a free account, and generate an API key. Keys start with <code>sk-ant-</code>. Paste it into the API key field in the app. Note: API usage is billed by Anthropic — check their pricing page for current rates.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How do I start my first job? <span class="faq-chev">›</span></div>
+      <div class="faq-a">1. Go to the <strong>Jobs</strong> tab and tap an available RFP. 2. Enter your bid amount and tap <strong>Submit Bid</strong>. 3. Advance the week — if you win, the job moves to Active. 4. Assign workers to the job from the Active Jobs panel. 5. Advance weeks to complete it and collect payment.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">My reputation keeps dropping. Why? <span class="faq-chev">›</span></div>
+      <div class="faq-a">Reputation drops when: jobs are completed late, clients leave bad reviews, you miss payroll, or you default on a loan. Keep jobs staffed with enough workers, don't over-bid your capacity, and pay your crew on time. Marketing campaigns (Marketing tab) can help recover reputation faster.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How do union contracts work? <span class="faq-chev">›</span></div>
+      <div class="faq-a">Union contracts are negotiated every few seasons. When your CBA comes up for renewal, you'll receive a weekly event card to negotiate wages, benefits, and work rules. Offering fair wages avoids strikes. You can view your current contract in the <strong>Corporate</strong> tab under Union Management.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">What does the Fab Shop do? <span class="faq-chev">›</span></div>
+      <div class="faq-a">The Fabrication Shop lets you build custom steel components, pipe spools, and process equipment in-house. Once built, FAB SHOP RFPs appear on your job board — these are higher-value contracts. You can upgrade it in 3 tiers from the Finance tab → Fab Shop card.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How do I delete all my data? <span class="faq-chev">›</span></div>
+      <div class="faq-a">Go to <strong>Settings → ⚠️ Danger Zone → Reset All Data</strong>. This permanently wipes all save slots and settings from your device. This cannot be undone.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">The app seems slow or is not loading. What can I do? <span class="faq-chev">›</span></div>
+      <div class="faq-a">Try closing and reopening the app. If the issue persists, check that your device has available storage. The game file is large (~3MB) and requires a recent WebView version. On Android, make sure Android System WebView is up to date via the Play Store.</div>
+    </div>
+
+  </div>
+
+  <!-- Tips -->
+  <div class="section">
+    <div class="section-title">Pro Tips</div>
+    <div class="tip-box">
+      💡 <strong style="color:var(--yellow)">Cash flow is everything.</strong> Never let your cash drop below one full week of payroll. Take a short-term loan before you miss payroll — missing it tanks your reputation and morale fast.<br><br>
+      💡 <strong style="color:var(--yellow)">Hire a Foreman early.</strong> Foremen boost crew efficiency and unlock larger job crews, which means bigger jobs and higher revenue per week.<br><br>
+      💡 <strong style="color:var(--yellow)">Watch your bid margin.</strong> Set a minimum profit margin in Settings → Bidding. Winning jobs at a loss is worse than not winning them at all.
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="section">
+    <div class="section-title">Contact Us</div>
+    <div class="contact-card">
+      <p>Can't find what you're looking for? Found a bug? Have a feature suggestion? We want to hear from you.</p>
+      <a class="contact-email" href="mailto:support@contractorinc.app">support@contractorinc.app</a>
+      <p style="margin-top:14px;font-size:12px;color:var(--text3)">We typically respond within 48 hours.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div style="font-size:20px;margin-bottom:6px">🏗️</div>
+    <strong style="color:var(--text2)">Contractor Inc</strong> · A Finn Production · Stanford Inc<br>
+    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <span style="color:var(--text3)">Support</span>
+  </footer>
+
+</div>
+
+<script>
+function toggle(el) {
+  const answer = el.nextElementSibling;
+  const chev = el.querySelector('.faq-chev');
+  const isOpen = answer.style.display === 'block';
+  answer.style.display = isOpen ? 'none' : 'block';
+  chev.style.transform = isOpen ? '' : 'rotate(90deg)';
+}
+</script>
+</body>
+</html>
